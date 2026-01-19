@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		6D1590E92F1E2178006FE806 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D1590E82F1E2178006FE806 /* NetworkExtension.framework */; };
+		6D1590F12F1E2178006FE806 /* network-extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 6D1590E62F1E2178006FE806 /* network-extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		6D1591012F1E229C006FE806 /* WireGuardKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6D1591002F1E229C006FE806 /* WireGuardKit */; };
+		6D71DBB52F1E28A1008B0376 /* libwg-go.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D71DBB32F1E277F008B0376 /* libwg-go.a */; };
+		6D71DC182F1E49E7008B0376 /* ResistineVPNXPC.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 6D71DC0C2F1E49E7008B0376 /* ResistineVPNXPC.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		6D1590C62F1E20D3006FE806 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
