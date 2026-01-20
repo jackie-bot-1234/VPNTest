@@ -66,9 +66,7 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
             
             if let adapterError = adapterError {
                 self.log("ERROR [Adapter Fail]: WireGuard adapter error: \(adapterError.localizedDescription)")
-                if let wgError = adapterError as? WireGuardAdapterError {
-                    self.log("ERROR [Adapter Fail]: Specific WireGuardAdapterError case: \(wgError)")
-                }
+                self.log("ERROR [Adapter Fail]: Specific WireGuardAdapterError case: \(adapterError)")
             } else {
                 let interfaceName = self.adapter.interfaceName ?? "unknown"
                 self.log("SUCCESS [Adapter Start]: Tunnel interface is \(interfaceName)")

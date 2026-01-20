@@ -19,7 +19,7 @@ class XPCClient {
             self?.setupConnection()
         }
         
-        connection.invalidationHandler = { [weak self] in
+        connection.invalidationHandler = {
             NSLog("XPCClient: Connection invalidated.")
             // Don't auto-reconnect on invalidation to avoid loops if the service is gone
         }

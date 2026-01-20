@@ -482,7 +482,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Build the CLI tool\nCLI_SRC=\"${PROJECT_DIR}/resistine-vpn-cli/main.swift\"\nCLI_BIN=\"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_FOLDER_PATH}/resistine-vpn-cli\"\nCLI_ENTITLEMENTS=\"${PROJECT_DIR}/resistine-vpn-cli/entitlements.plist\"\n\necho \"🔨 Building CLI tool...\"\nswiftc \"$CLI_SRC\" -o \"$CLI_BIN\"\n\necho \"🔏 Signing CLI tool with identity: ${EXPANDED_CODE_SIGN_IDENTITY:- -}\"\n# Use the same identity as the main app, fallback to ad-hoc if not set\ncodesign --force --options runtime -i com.resistine.resistine-vpn-cli --entitlements \"$CLI_ENTITLEMENTS\" --sign \"${EXPANDED_CODE_SIGN_IDENTITY:--}\" \"$CLI_BIN\"\n\necho \"✅ CLI tool bundled at: $CLI_BIN\"\n";
+			shellScript = "# Build the CLI tool\nCLI_SRC=\"${PROJECT_DIR}/resistine-vpn-cli/main.swift\"\nCLI_BIN=\"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_FOLDER_PATH}/resistine-vpn-cli\"\nCLI_ENTITLEMENTS=\"${PROJECT_DIR}/resistine-vpn-cli/entitlements.plist\"\n# Place dSYM outside the app bundle to avoid validation errors\nCLI_DSYM_DIR=\"${BUILT_PRODUCTS_DIR}/resistine-vpn-cli.dSYM\"\nTEMP_OBJ=\"${DERIVED_FILE_DIR}/cli_main.o\"\n\necho \"🔨 Building CLI tool...\"\n# 1. Compile to object file with debug info\nswiftc -g -c \"$CLI_SRC\" -o \"$TEMP_OBJ\"\n\n# 2. Link to executable\nswiftc -g \"$TEMP_OBJ\" -o \"$CLI_BIN\"\n\necho \"🔍 Generating dSYM at: $CLI_DSYM_DIR\"\n# Remove any old dSYM that might be inside the bundle from previous failed attempts\nrm -rf \"$CLI_BIN.dSYM\"\ndsymutil \"$CLI_BIN\" -o \"$CLI_DSYM_DIR\"\n\n# Fix dSYM bundle ID to avoid com.apple namespace error\nif [ -f \"$CLI_DSYM_DIR/Contents/Info.plist\" ]; then\n  /usr/libexec/PlistBuddy -c \"Set :CFBundleIdentifier com.resistine.wireguard-apple.cli.dsym\" \"$CLI_DSYM_DIR/Contents/Info.plist\"\nfi\n\necho \"🔏 Signing CLI tool with identity: ${EXPANDED_CODE_SIGN_IDENTITY:- -}\"\n# Use the same identity as the main app, fallback to ad-hoc if not set\ncodesign --force --options runtime -i com.resistine.resistine-vpn-cli --entitlements \"$CLI_ENTITLEMENTS\" --sign \"${EXPANDED_CODE_SIGN_IDENTITY:--}\" \"$CLI_BIN\"\n\necho \"✅ CLI tool bundled at: $CLI_BIN\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -581,6 +581,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = C7KSRZC3Q9;
@@ -674,6 +675,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "wireguard-apple/wireguard_apple.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -690,6 +692,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.resistine.wireguard-apple";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -830,7 +833,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "network-extension/network_extension.entitlements";
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C7KSRZC3Q9;
@@ -872,6 +874,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.resistine.wireguard-apple.bridge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -884,6 +887,7 @@
 				DEVELOPMENT_TEAM = C7KSRZC3Q9;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.resistine.wireguard-apple.bridge";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -892,10 +896,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ResistineVPNXPC/ResistineVPNXPC.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Developer ID Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C7KSRZC3Q9;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = C7KSRZC3Q9;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ResistineVPNXPC/Info.plist;
@@ -904,6 +910,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.resistine.ResistineVPNXPC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Resistine Extension Distri";
 				REGISTER_APP_GROUPS = YES;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -915,11 +923,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = ResistineVPNXPC/ResistineVPNXPC.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C7KSRZC3Q9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ResistineVPNXPC/Info.plist;
