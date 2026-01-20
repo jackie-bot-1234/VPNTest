@@ -29,17 +29,88 @@
 			remoteGlobalIDString = 6D1590B62F1E20D0006FE806;
 			remoteInfo = "wireguard-apple";
 		};
+		6D1590EF2F1E2178006FE806 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D1590AF2F1E20D0006FE806 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D1590E52F1E2178006FE806;
+			remoteInfo = "network-extension";
+		};
+		6D71DC162F1E49E7008B0376 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6D1590AF2F1E20D0006FE806 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6D71DC0B2F1E49E7008B0376;
+			remoteInfo = ResistineVPNXPC;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6D1590F62F1E2178006FE806 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6D1590F12F1E2178006FE806 /* network-extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D71DC072F1E463A008B0376 /* Embed XPC Services */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+				6D71DC182F1E49E7008B0376 /* ResistineVPNXPC.xpc in Embed XPC Services */,
+			);
+			name = "Embed XPC Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6D1590B72F1E20D0006FE806 /* wireguard-apple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "wireguard-apple.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D1590C52F1E20D3006FE806 /* wireguard-appleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "wireguard-appleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D1590CF2F1E20D3006FE806 /* wireguard-appleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "wireguard-appleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D1590E62F1E2178006FE806 /* network-extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "network-extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D1590E82F1E2178006FE806 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		6D71DBB32F1E277F008B0376 /* libwg-go.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libwg-go.a"; path = "script/libwg-go.a"; sourceTree = "<group>"; };
+		6D71DC0C2F1E49E7008B0376 /* ResistineVPNXPC.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = ResistineVPNXPC.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6D1590F22F1E2178006FE806 /* Exceptions for "network-extension" folder in "network-extension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6D1590E52F1E2178006FE806 /* network-extension */;
+		};
+		6D71DC222F1E4BD1008B0376 /* Exceptions for "wireguard-apple" folder in "ResistineVPNXPC" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				VPNController.swift,
+				VPNXPCProtocol.swift,
+			);
+			target = 6D71DC0B2F1E49E7008B0376 /* ResistineVPNXPC */;
+		};
+		6D71DC272F1E4CDC008B0376 /* Exceptions for "ResistineVPNXPC" folder in "ResistineVPNXPC" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 6D71DC0B2F1E49E7008B0376 /* ResistineVPNXPC */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6D1590B92F1E20D0006FE806 /* wireguard-apple */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6D71DC222F1E4BD1008B0376 /* Exceptions for "wireguard-apple" folder in "ResistineVPNXPC" target */,
+			);
 			path = "wireguard-apple";
 			sourceTree = "<group>";
 		};
@@ -51,6 +122,27 @@
 		6D1590D22F1E20D3006FE806 /* wireguard-appleUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "wireguard-appleUITests";
+			sourceTree = "<group>";
+		};
+		6D1590EA2F1E2178006FE806 /* network-extension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6D1590F22F1E2178006FE806 /* Exceptions for "network-extension" folder in "network-extension" target */,
+			);
+			path = "network-extension";
+			sourceTree = "<group>";
+		};
+		6D1590FB2F1E21DD006FE806 /* script */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = script;
+			sourceTree = "<group>";
+		};
+		6D71DC0D2F1E49E7008B0376 /* ResistineVPNXPC */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6D71DC272F1E4CDC008B0376 /* Exceptions for "ResistineVPNXPC" folder in "ResistineVPNXPC" target */,
+			);
+			path = ResistineVPNXPC;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -77,6 +169,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6D1590E32F1E2178006FE806 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D1591012F1E229C006FE806 /* WireGuardKit in Frameworks */,
+				6D1590E92F1E2178006FE806 /* NetworkExtension.framework in Frameworks */,
+				6D71DBB52F1E28A1008B0376 /* libwg-go.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D71DC092F1E49E7008B0376 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -86,7 +195,11 @@
 				6D1590B92F1E20D0006FE806 /* wireguard-apple */,
 				6D1590C82F1E20D3006FE806 /* wireguard-appleTests */,
 				6D1590D22F1E20D3006FE806 /* wireguard-appleUITests */,
+				6D1590EA2F1E2178006FE806 /* network-extension */,
+				6D71DC0D2F1E49E7008B0376 /* ResistineVPNXPC */,
+				6D1590E72F1E2178006FE806 /* Frameworks */,
 				6D1590B82F1E20D0006FE806 /* Products */,
+				6D1590FB2F1E21DD006FE806 /* script */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,11 +209,40 @@
 				6D1590B72F1E20D0006FE806 /* wireguard-apple.app */,
 				6D1590C52F1E20D3006FE806 /* wireguard-appleTests.xctest */,
 				6D1590CF2F1E20D3006FE806 /* wireguard-appleUITests.xctest */,
+				6D1590E62F1E2178006FE806 /* network-extension.appex */,
+				6D71DC0C2F1E49E7008B0376 /* ResistineVPNXPC.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6D1590E72F1E2178006FE806 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D71DBB32F1E277F008B0376 /* libwg-go.a */,
+				6D1590E82F1E2178006FE806 /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		6D1590F72F1E21CA006FE806 /* WireguardGoBridge */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 6D1590F82F1E21CA006FE806 /* Build configuration list for PBXLegacyTarget "WireguardGoBridge" */;
+			buildPhases = (
+			);
+			buildToolPath = "$(PROJECT_DIR)/script/build_wireguard_go_bridge.sh";
+			dependencies = (
+			);
+			name = WireguardGoBridge;
+			packageProductDependencies = (
+			);
+			passBuildSettingsInEnvironment = 1;
+			productName = WireguardGoBridge;
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		6D1590B62F1E20D0006FE806 /* wireguard-apple */ = {
@@ -110,10 +252,15 @@
 				6D1590B32F1E20D0006FE806 /* Sources */,
 				6D1590B42F1E20D0006FE806 /* Frameworks */,
 				6D1590B52F1E20D0006FE806 /* Resources */,
+				6D1590F62F1E2178006FE806 /* Embed Foundation Extensions */,
+				6D71DC072F1E463A008B0376 /* Embed XPC Services */,
+				6D71DC282F1E5360008B0376 /* Build & Sign CLI Bridge */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6D1590F02F1E2178006FE806 /* PBXTargetDependency */,
+				6D71DC172F1E49E7008B0376 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				6D1590B92F1E20D0006FE806 /* wireguard-apple */,
@@ -171,6 +318,52 @@
 			productReference = 6D1590CF2F1E20D3006FE806 /* wireguard-appleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		6D1590E52F1E2178006FE806 /* network-extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D1590F32F1E2178006FE806 /* Build configuration list for PBXNativeTarget "network-extension" */;
+			buildPhases = (
+				6D1590E22F1E2178006FE806 /* Sources */,
+				6D1590E32F1E2178006FE806 /* Frameworks */,
+				6D1590E42F1E2178006FE806 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6D1590EA2F1E2178006FE806 /* network-extension */,
+				6D1590FB2F1E21DD006FE806 /* script */,
+			);
+			name = "network-extension";
+			packageProductDependencies = (
+				6D1591002F1E229C006FE806 /* WireGuardKit */,
+			);
+			productName = "network-extension";
+			productReference = 6D1590E62F1E2178006FE806 /* network-extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		6D71DC0B2F1E49E7008B0376 /* ResistineVPNXPC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6D71DC1A2F1E49E7008B0376 /* Build configuration list for PBXNativeTarget "ResistineVPNXPC" */;
+			buildPhases = (
+				6D71DC082F1E49E7008B0376 /* Sources */,
+				6D71DC092F1E49E7008B0376 /* Frameworks */,
+				6D71DC0A2F1E49E7008B0376 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6D71DC0D2F1E49E7008B0376 /* ResistineVPNXPC */,
+			);
+			name = ResistineVPNXPC;
+			packageProductDependencies = (
+			);
+			productName = ResistineVPNXPC;
+			productReference = 6D71DC0C2F1E49E7008B0376 /* ResistineVPNXPC.xpc */;
+			productType = "com.apple.product-type.xpc-service";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -192,6 +385,15 @@
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = 6D1590B62F1E20D0006FE806;
 					};
+					6D1590E52F1E2178006FE806 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					6D1590F72F1E21CA006FE806 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					6D71DC0B2F1E49E7008B0376 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 				};
 			};
 			buildConfigurationList = 6D1590B22F1E20D0006FE806 /* Build configuration list for PBXProject "wireguard-apple" */;
@@ -203,6 +405,9 @@
 			);
 			mainGroup = 6D1590AE2F1E20D0006FE806;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				6D1590FF2F1E229C006FE806 /* XCRemoteSwiftPackageReference "wireguard-apple" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 6D1590B82F1E20D0006FE806 /* Products */;
 			projectDirPath = "";
@@ -211,6 +416,9 @@
 				6D1590B62F1E20D0006FE806 /* wireguard-apple */,
 				6D1590C42F1E20D3006FE806 /* wireguard-appleTests */,
 				6D1590CE2F1E20D3006FE806 /* wireguard-appleUITests */,
+				6D1590E52F1E2178006FE806 /* network-extension */,
+				6D1590F72F1E21CA006FE806 /* WireguardGoBridge */,
+				6D71DC0B2F1E49E7008B0376 /* ResistineVPNXPC */,
 			);
 		};
 /* End PBXProject section */
@@ -237,7 +445,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6D1590E42F1E2178006FE806 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D71DC0A2F1E49E7008B0376 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6D71DC282F1E5360008B0376 /* Build & Sign CLI Bridge */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(PROJECT_DIR)/resistine-vpn-cli/main.swift",
+				"$(PROJECT_DIR)/resistine-vpn-cli/entitlements.plist",
+			);
+			name = "Build & Sign CLI Bridge";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(EXECUTABLE_FOLDER_PATH)/resistine-vpn-cli",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Build the CLI tool\nCLI_SRC=\"${PROJECT_DIR}/resistine-vpn-cli/main.swift\"\nCLI_BIN=\"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_FOLDER_PATH}/resistine-vpn-cli\"\nCLI_ENTITLEMENTS=\"${PROJECT_DIR}/resistine-vpn-cli/entitlements.plist\"\n\necho \"🔨 Building CLI tool...\"\nswiftc \"$CLI_SRC\" -o \"$CLI_BIN\"\n\necho \"🔏 Signing CLI tool with identity: ${EXPANDED_CODE_SIGN_IDENTITY:- -}\"\n# Use the same identity as the main app, fallback to ad-hoc if not set\ncodesign --force --options runtime -i com.resistine.resistine-vpn-cli --entitlements \"$CLI_ENTITLEMENTS\" --sign \"${EXPANDED_CODE_SIGN_IDENTITY:--}\" \"$CLI_BIN\"\n\necho \"✅ CLI tool bundled at: $CLI_BIN\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6D1590B32F1E20D0006FE806 /* Sources */ = {
@@ -261,6 +508,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6D1590E22F1E2178006FE806 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D71DC082F1E49E7008B0376 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -273,6 +534,16 @@
 			isa = PBXTargetDependency;
 			target = 6D1590B62F1E20D0006FE806 /* wireguard-apple */;
 			targetProxy = 6D1590D02F1E20D3006FE806 /* PBXContainerItemProxy */;
+		};
+		6D1590F02F1E2178006FE806 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D1590E52F1E2178006FE806 /* network-extension */;
+			targetProxy = 6D1590EF2F1E2178006FE806 /* PBXContainerItemProxy */;
+		};
+		6D71DC172F1E49E7008B0376 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6D71DC0B2F1E49E7008B0376 /* ResistineVPNXPC */;
+			targetProxy = 6D71DC162F1E49E7008B0376 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -315,7 +586,7 @@
 				DEVELOPMENT_TEAM = C7KSRZC3Q9;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -379,7 +650,7 @@
 				DEVELOPMENT_TEAM = C7KSRZC3Q9;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -410,6 +681,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -430,6 +702,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "wireguard-apple/wireguard_apple.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -437,6 +710,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -445,6 +719,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.resistine.wireguard-apple";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				REGISTER_APP_GROUPS = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -519,6 +794,148 @@
 			};
 			name = Release;
 		};
+		6D1590F42F1E2178006FE806 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "network-extension/network_extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C7KSRZC3Q9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "network-extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "network-extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/script/**",
+					"$(PROJECT_DIR)/script",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.resistine.wireguard-apple.network-extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6D1590F52F1E2178006FE806 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "network-extension/network_extension.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C7KSRZC3Q9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "network-extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "network-extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/script/**",
+					"$(PROJECT_DIR)/script",
+				);
+				MARKETING_VERSION = 1.0;
+				"OTHER_LDFLAGS[arch=*]" = "-lwg-go";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.resistine.wireguard-apple.network-extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		6D1590F92F1E21CA006FE806 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUGGING_SYMBOLS = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = C7KSRZC3Q9;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6D1590FA2F1E21CA006FE806 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = C7KSRZC3Q9;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6D71DC1B2F1E49E7008B0376 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ResistineVPNXPC/ResistineVPNXPC.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C7KSRZC3Q9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ResistineVPNXPC/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ResistineVPNXPC;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.resistine.ResistineVPNXPC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		6D71DC1C2F1E49E7008B0376 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ResistineVPNXPC/ResistineVPNXPC.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C7KSRZC3Q9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ResistineVPNXPC/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ResistineVPNXPC;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.resistine.ResistineVPNXPC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -558,7 +975,53 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		6D1590F32F1E2178006FE806 /* Build configuration list for PBXNativeTarget "network-extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D1590F42F1E2178006FE806 /* Debug */,
+				6D1590F52F1E2178006FE806 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D1590F82F1E21CA006FE806 /* Build configuration list for PBXLegacyTarget "WireguardGoBridge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D1590F92F1E21CA006FE806 /* Debug */,
+				6D1590FA2F1E21CA006FE806 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6D71DC1A2F1E49E7008B0376 /* Build configuration list for PBXNativeTarget "ResistineVPNXPC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6D71DC1B2F1E49E7008B0376 /* Debug */,
+				6D71DC1C2F1E49E7008B0376 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6D1590FF2F1E229C006FE806 /* XCRemoteSwiftPackageReference "wireguard-apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ut360e/wireguard-apple.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6D1591002F1E229C006FE806 /* WireGuardKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6D1590FF2F1E229C006FE806 /* XCRemoteSwiftPackageReference "wireguard-apple" */;
+			productName = WireGuardKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6D1590AF2F1E20D0006FE806 /* Project object */;
 }
