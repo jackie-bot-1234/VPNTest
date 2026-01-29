@@ -1,5 +1,4 @@
 import Foundation
-import NetworkExtension
 
 @objc protocol VPNXPCProtocol {
     func startVPN(config: String, with reply: @escaping (Bool) -> Void)
@@ -33,11 +32,18 @@ group.enter()
 switch command {
 case "start":
     guard arguments.count > 2 else {
-        print("Error: Missing config for start command")
+        print("Error: Missing config path for start command")
         exit(1)
     }
-    let config = arguments[2]
-    proxy.startVPN(config: config) { success in
+    let configPath = arguments[2]
+    // Read the config file contents — the XPC service expects the WireGuard
+    // config text, not a file path.
+    guard let configData = FileManager.default.contents(atPath: configPath),
+          let configContents = String(data: configData, encoding: .utf8) else {
+        print("Error: Could not read config file at \(configPath)")
+        exit(1)
+    }
+    proxy.startVPN(config: configContents) { success in
         print(success ? "VPN started successfully" : "Failed to start VPN")
         group.leave()
     }
@@ -48,10 +54,13 @@ case "stop":
     }
 case "status":
     proxy.status { statusRaw in
-        let status = NEVPNStatus(rawValue: statusRaw) ?? .invalid
-        switch status {
-        case .connected, .connecting, .reasserting:
+        // NEVPNStatus raw values: 0=invalid, 1=disconnected, 2=connecting,
+        // 3=connected, 4=disconnecting, 5=reasserting
+        switch statusRaw {
+        case 3:
             print("Connected")
+        case 2, 5:
+            print("Connecting")
         default:
             print("Disconnected")
         }
