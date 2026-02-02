@@ -6,7 +6,7 @@ import Foundation
     func status(with reply: @escaping (Int) -> Void)
 }
 
-let connection = NSXPCConnection(serviceName: "com.resistine.ResistineVPNXPC")
+let connection = NSXPCConnection(serviceName: "com.resistine.desktop.vpnxpc")
 connection.remoteObjectInterface = NSXPCInterface(with: VPNXPCProtocol.self)
 connection.resume()
 

@@ -11,7 +11,7 @@ class XPCClient {
     }
     
     private func setupConnection() {
-        let connection = NSXPCConnection(serviceName: "com.resistine.ResistineVPNXPC")
+        let connection = NSXPCConnection(serviceName: "com.resistine.desktop.vpnxpc")
         connection.remoteObjectInterface = NSXPCInterface(with: VPNXPCProtocol.self)
         
         connection.interruptionHandler = { [weak self] in

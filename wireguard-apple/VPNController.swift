@@ -4,7 +4,7 @@ import NetworkExtension
 class VPNController: NSObject {
     static let shared = VPNController()
     
-    private let extensionBundleIdentifier = "com.resistine.wireguard-apple.network-extension"
+    private let extensionBundleIdentifier = "com.resistine.desktop.network-extension"
     private var tunnelManager: NETunnelProviderManager?
     private var isOperationInProgress = false
     
